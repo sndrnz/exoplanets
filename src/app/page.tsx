@@ -1,13 +1,15 @@
-import Planet from "@/components/Planet";
+import PlanetCard from "@/components/PlanetCard";
+import planets from "@/data/planets";
 
 export default function Home() {
   return (
-    <main className="my-4">
-      <h1 className="text-center font-bold text-3xl">Exoplaneten</h1>
-
-      <div className="h-96 mt-4">
-        <Planet />
+    <div>
+      <h1 className="text-4xl font-bold">Exoplanets</h1>
+      <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+        {planets.map((planet) => (
+          <PlanetCard key={planet.name} planet={planet} />
+        ))}
       </div>
-    </main>
+    </div>
   );
 }
