@@ -1,5 +1,6 @@
 import { Planet } from "@/data/planets";
 import { Card, CardFooter, Image } from "@nextui-org/react";
+import TiltEffect from "./TiltEffect";
 
 type Props = {
   planet: Planet;
@@ -7,18 +8,13 @@ type Props = {
 
 export default function PlanetCard({ planet }: Props) {
   return (
-    <>
+    <TiltEffect>
       <Card
         radius="lg"
-        isPressable
         className="group border-2 border-white/20 bg-transparent bg-gradient-to-b from-white/5 to-black backdrop-blur-sm transition-background hover:border-primary hover:from-primary/20"
       >
         <div className="relative mb-2 p-8">
-          <Image
-            alt="Earth"
-            src={`/images/planets/${planet.image}`}
-            className=""
-          />
+          <Image alt="Earth" src={`/images/planets/${planet.image}`} />
           <div className="absolute bottom-4 left-1/2 h-2 w-36 -translate-x-1/2 rounded-full bg-white/80 blur-xl"></div>
         </div>
         <CardFooter className="block space-y-2">
@@ -30,6 +26,6 @@ export default function PlanetCard({ planet }: Props) {
           </p>
         </CardFooter>
       </Card>
-    </>
+    </TiltEffect>
   );
 }

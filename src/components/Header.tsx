@@ -12,7 +12,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 32) {
+      if (window.scrollY > 100) {
         setIsOnTop(false);
       } else {
         setIsOnTop(true);
@@ -30,11 +30,10 @@ export default function Header() {
         wrapper: "max-w-7xl",
         content: "flex gap-8",
       }}
+      isBlurred={false}
       className={cn(
-        "transition-colors duration-700",
-        isOnTop
-          ? "bg-transparent backdrop-blur-none"
-          : "bg-white/50 backdrop-blur-none",
+        "transition-all duration-700",
+        isOnTop ? "bg-transparent" : "bg-black",
       )}
     >
       <NavbarContent>
