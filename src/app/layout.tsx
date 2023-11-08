@@ -1,4 +1,5 @@
 import stars from "@/assets/stars.webp";
+import Header from "@/components/Header";
 import { Providers } from "@/lib/Providers";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -26,7 +27,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
             />
             <div className="absolute inset-0 z-20" />
           </div>
-          <main className="container mx-auto max-w-4xl p-8 text-white">
+          <Header />
+          <main className="container mx-auto max-w-7xl p-8 text-white">
             {children}
           </main>
         </Providers>
