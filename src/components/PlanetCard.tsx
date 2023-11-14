@@ -14,7 +14,11 @@ export default function PlanetCard({ planet }: Props) {
         className="group border-2 border-white/20 bg-transparent bg-gradient-to-b from-white/5 to-black backdrop-blur-sm transition-background hover:border-primary hover:from-primary/20"
       >
         <div className="relative mb-2 p-8">
-          <Image alt="Earth" src={`/images/planets/${planet.image}`} />
+          <Image
+            loading="lazy"
+            alt="Earth"
+            src={`/images/planets/${planet.image}`}
+          />
           <div className="absolute bottom-4 left-1/2 h-2 w-36 -translate-x-1/2 rounded-full bg-white/80 blur-xl"></div>
         </div>
         <CardFooter className="block space-y-2">
