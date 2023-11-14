@@ -1,6 +1,6 @@
 "use client";
 
-import useIsOnTop from "@/lib/hooks/useScroll";
+import useScroll from "@/lib/hooks/useScroll";
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
 
 type Props = {
@@ -8,14 +8,14 @@ type Props = {
 };
 
 export default function Wrapper({ title, children }: PropsWithChildren<Props>) {
-  const { isOnTop, distance } = useIsOnTop();
+  const { isOnTop, distance } = useScroll();
 
   const titleRef = useRef<HTMLHeadingElement>(null);
 
   const [titleTop, setTitleTop] = useState(0);
 
   const opacity = 1 - (distance / 100) * 0.75;
-  const scale = 1 - (distance / 100) * 0.05;
+  const scale = Math.max(1 - (distance / 100) * 0.05, 0);
 
   useEffect(() => {
     const top = titleRef.current?.getBoundingClientRect().top ?? 0;
@@ -37,7 +37,7 @@ export default function Wrapper({ title, children }: PropsWithChildren<Props>) {
       >
         {title}
       </h1>
-      <div className="">{children}</div>
+      <div>{children}</div>
     </div>
   );
 }
