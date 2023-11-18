@@ -26,7 +26,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
               sizes="100vw"
               className="z-10 select-none object-cover"
             />
-            <div className="absolute inset-0 z-20" />
+            <div className="absolute inset-0 z-20 bg-black/40" />
           </div>
           <Header />
           <main className="container mx-auto max-w-7xl p-8 text-white">
