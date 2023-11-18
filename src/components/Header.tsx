@@ -1,6 +1,6 @@
 "use client";
 
-import navigationItems from "@/data/navigation";
+import navigationItems from "@/lib/data/navigation";
 import { Link, Navbar, NavbarContent, NavbarItem, cn } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";

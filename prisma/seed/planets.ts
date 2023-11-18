@@ -1,329 +1,391 @@
-import planetTypes from "./planetTypes";
-
-export type Planet = {
-  name: string;
-  image: string;
-  type: (typeof planetTypes)[number]["name"];
-  discovered: number;
-  distance: number;
-  source: string;
-};
-
+import { Planet } from "@prisma/client";
+import { getPlanetTypeId } from "./planetTypes";
 const planets: Planet[] = [
   {
+    id: 1,
     name: "55 Cancri b",
     image: "55_Cancri_b.webp",
     discovered: 1996,
-    type: "Gas Giant",
     distance: 41,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/55_Cnc_b/",
+    slug: "55-cancri-b",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 2,
     name: "55 Cancri c",
     image: "55_Cancri_c.webp",
     discovered: 2004,
-    type: "Gas Giant",
     distance: 41,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/55_Cnc_c/",
+    slug: "55-cancri-c",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 3,
     name: "55 Cancri d",
     image: "55_Cancri_d.webp",
     discovered: 2002,
-    type: "Gas Giant",
     distance: 459,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/55_Cnc_d/",
+    slug: "55-cancri-d",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 4,
     name: "55 Cancri e",
     image: "55_Cancri_e.webp",
     discovered: 2004,
-    type: "Super Earth",
     distance: 41,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/55_Cnc_e/",
+    slug: "55-cancri-e",
+    typeId: getPlanetTypeId("Super Earth"),
   },
   {
+    id: 5,
     name: "55 Cancri f",
     image: "55_Cancri_f.webp",
     discovered: 2007,
-    type: "Gas Giant",
     distance: 41,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/55_Cnc_f/",
+    slug: "55-cancri-f",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 6,
     name: "AU Microscopii b",
     image: "AU_Microscopii_b.webp",
     discovered: 2020,
-    type: "Neptunian",
     distance: 32,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/AU_Mic_b/",
+    slug: "au-microscopii-b",
+    typeId: getPlanetTypeId("Neptunian"),
   },
   {
+    id: 7,
     name: "AU Microscopii c",
     image: "AU_Microscopii_c.webp",
     discovered: 2021,
-    type: "Neptunian",
     distance: 32,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/AU_Mic_c/",
+    slug: "au-microscopii-c",
+    typeId: getPlanetTypeId("Neptunian"),
   },
   {
+    id: 8,
     name: "GJ 15 A b",
     image: "GJ_15_A_b.webp",
     discovered: 2014,
-    type: "Super Earth",
     distance: 12,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/GJ_15_A_b/",
+    slug: "gj-15-a-b",
+    typeId: getPlanetTypeId("Super Earth"),
   },
   {
+    id: 9,
     name: "GJ 15 A c",
     image: "GJ_15_A_c.webp",
     discovered: 2018,
-    type: "Neptunian",
     distance: 12,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/GJ_15_A_c/",
+    slug: "gj-15-a-c",
+    typeId: getPlanetTypeId("Neptunian"),
   },
   {
+    id: 10,
     name: "GJ 436 b",
     image: "GJ_436_b.webp",
     discovered: 2004,
-    type: "Neptunian",
     distance: 32,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/GJ_436_b/",
+    slug: "gj-436-b",
+    typeId: getPlanetTypeId("Neptunian"),
   },
   {
+    id: 11,
     name: "GJ 504 b",
     image: "GJ_504_b.webp",
     discovered: 2013,
-    type: "Gas Giant",
     distance: 57,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/GJ_504_b/",
+    slug: "gj-504-b",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 12,
     name: "GJ 1132 b",
     image: "GJ_1132_b.webp",
     discovered: 2015,
-    type: "Super Earth",
     distance: 41,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/GJ_1132_b/",
+    slug: "gj-1132-b",
+    typeId: getPlanetTypeId("Super Earth"),
   },
   {
+    id: 13,
     name: "GJ 1132 c",
     image: "GJ_1132_c.webp",
     discovered: 2018,
-    type: "Super Earth",
     distance: 41,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/GJ_1132_c/",
+    slug: "gj-1132-c",
+    typeId: getPlanetTypeId("Super Earth"),
   },
   {
+    id: 14,
     name: "HD 17156 b",
     image: "HD_17156_b.webp",
     discovered: 2007,
-    type: "Gas Giant",
     distance: 255,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/HD_17156_b/",
+    slug: "hd-17156-b",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 15,
     name: "HD 189733 b",
     image: "HD_189733_b.webp",
     discovered: 2005,
-    type: "Gas Giant",
     distance: 65,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/HD_189733_b/",
+    slug: "hd-189733-b",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 16,
     name: "KELT-9 b",
     image: "KELT-9_b.webp",
     discovered: 2017,
-    type: "Gas Giant",
     distance: 667,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/KELT-9_b/",
+    slug: "kelt-9-b",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 17,
     name: "Kepler-7 b",
     image: "Kepler-7_b.webp",
     discovered: 2009,
-    type: "Gas Giant",
     distance: 3000,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/Kepler-7_b/",
+    slug: "kepler-7-b",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 18,
     name: "Kepler-16 b",
     image: "Kepler-16_b.webp",
     discovered: 2011,
-    type: "Gas Giant",
     distance: 245,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/Kepler-16_b/",
+    slug: "kepler-16-b",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 19,
     name: "Kepler-22 b",
     image: "Kepler-22_b.webp",
     discovered: 2011,
-    type: "Super Earth",
     distance: 635,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/Kepler-22_b/",
+    slug: "kepler-22-b",
+    typeId: getPlanetTypeId("Super Earth"),
   },
   {
+    id: 20,
     name: "Kepler-36 b",
     image: "Kepler-36_b.webp",
     discovered: 2012,
-    type: "Super Earth",
     distance: 2000,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/Kepler-36_b/",
+    slug: "kepler-36-b",
+    typeId: getPlanetTypeId("Super Earth"),
   },
   {
+    id: 21,
     name: "Kepler-36 c",
     image: "Kepler-36_c.webp",
     discovered: 2012,
-    type: "Neptunian",
     distance: 2000,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/Kepler-36_c/",
+    slug: "kepler-36-c",
+    typeId: getPlanetTypeId("Neptunian"),
   },
   {
+    id: 22,
     name: "Kepler-452 b",
     image: "Kepler-452_b.webp",
     discovered: 2015,
-    type: "Super Earth",
     distance: 2000,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/Kepler-452_b/",
+    slug: "kepler-452-b",
+    typeId: getPlanetTypeId("Super Earth"),
   },
   {
+    id: 23,
     name: "KOI-55 b",
     image: "KOI-55_b.webp",
     discovered: 2011,
-    type: "Terrestrial",
     distance: 4000,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/KOI-55_b/",
+    slug: "koi-55-b",
+    typeId: getPlanetTypeId("Terrestrial"),
   },
   {
+    id: 24,
     name: "KOI-55 c",
     image: "KOI-55_c.webp",
     discovered: 2011,
-    type: "Terrestrial",
     distance: 4000,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/KOI-55_c/",
+    slug: "koi-55-c",
+    typeId: getPlanetTypeId("Terrestrial"),
   },
   {
+    id: 25,
     name: "PSR B1257+12 b",
     image: "PSR_B1257+12_b.webp",
     discovered: 1994,
-    type: "Terrestrial",
     distance: 2000,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/PSR_B1257+12_b/",
+    slug: "psr-b1257-12-b",
+    typeId: getPlanetTypeId("Terrestrial"),
   },
   {
+    id: 26,
     name: "PSR B1257+12 c",
     image: "PSR_B1257+12_c.webp",
     discovered: 1992,
-    type: "Super Earth",
     distance: 2000,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/PSR_B1257+12_c/",
+    slug: "psr-b1257-12-c",
+    typeId: getPlanetTypeId("Super Earth"),
   },
   {
+    id: 27,
     name: "PSR B1257+12 d",
     image: "PSR_B1257+12_d.webp",
     discovered: 1992,
-    type: "Super Earth",
     distance: 2000,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/PSR_B1257+12_d/",
+    slug: "psr-b1257-12-d",
+    typeId: getPlanetTypeId("Super Earth"),
   },
   {
+    id: 28,
     name: "TIC 172900988 b",
     image: "TIC_172900988_b.webp",
     discovered: 2021,
-    type: "Gas Giant",
     distance: 819,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/TIC_172900988_b/",
+    slug: "tic-172900988-b",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
+
   {
+    id: 29,
     name: "TOI-849 b",
     image: "TOI-849_b.webp",
     discovered: 2020,
-    type: "Gas Giant",
     distance: 737,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/TOI-849_b/",
+    slug: "toi-849-b",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 30,
     name: "TOI-3757 b",
     image: "TOI-3757_b.webp",
     discovered: 2022,
-    type: "Gas Giant",
     distance: 591,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/TOI-3757_b/",
+    slug: "toi-3757-b",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 31,
     name: "TrES-2 b",
     image: "TrES-2_b.webp",
     discovered: 2006,
-    type: "Gas Giant",
     distance: 703,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/TrES-2_b/",
+    slug: "tres-2-b",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 32,
     name: "TYC 8998-760-1 b",
     image: "TYC_8998-760-1_b.webp",
     discovered: 2020,
-    type: "Gas Giant",
     distance: 309,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/TYC_8998-760-1_b/",
+    slug: "tyc-8998-760-1-b",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 33,
     name: "TYC 8998-760-1 c",
     image: "TYC_8998-760-1_c.webp",
     discovered: 2020,
-    type: "Gas Giant",
     distance: 309,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/TYC_8998-760-1_c/",
+    slug: "tyc-8998-760-1-c",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 34,
     name: "WASP-12 b",
     image: "WASP-12_b.webp",
     discovered: 2008,
-    type: "Gas Giant",
     distance: 1000,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/WASP-12_b/",
+    slug: "wasp-12-b",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
   {
+    id: 35,
     name: "WASP-96 b",
     image: "WASP-96_b.webp",
     discovered: 2014,
-    type: "Gas Giant",
     distance: 1000,
     source:
       "https://exoplanets.nasa.gov/eyes-on-exoplanets/?destinations=/alien-worlds/strange-new-worlds/#/planet/WASP-96_b/",
+    slug: "wasp-96-b",
+    typeId: getPlanetTypeId("Gas Giant"),
   },
 ];
 
