@@ -1,5 +1,6 @@
 import { Planet } from "@/lib/data/planets";
-import { Card, CardFooter, Image } from "@nextui-org/react";
+import { Card, CardFooter } from "@nextui-org/react";
+import Image from "next/image";
 import Link from "next/link";
 import TiltEffect from "./TiltEffect";
 
@@ -20,7 +21,10 @@ export default function PlanetCard({ planet }: Props) {
           <div className="relative mb-2 p-8">
             <Image
               loading="lazy"
-              alt="Earth"
+              width={640}
+              height={640}
+              alt={planet.name}
+              sizes="(max-width: 768px) 640px, (max-width: 1024px) 400px, 320px"
               src={`/images/planets/${planet.image}`}
             />
             <div className="absolute bottom-4 left-1/2 h-2 w-36 -translate-x-1/2 rounded-full bg-white/80 blur-xl"></div>

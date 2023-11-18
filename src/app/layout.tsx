@@ -23,6 +23,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
               src={stars}
               fill
               alt="stars"
+              sizes="100vw"
               className="z-10 select-none object-cover"
             />
             <div className="absolute inset-0 z-20" />
