@@ -4,10 +4,10 @@ export type NavigationItem = {
 };
 
 const navigationItems: NavigationItem[] = [
-  {
-    name: "Home",
-    path: "/",
-  },
+  // {
+  //   name: "Home",
+  //   path: "/",
+  // },
   {
     name: "Planets",
     path: "/planets",

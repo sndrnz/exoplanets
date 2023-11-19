@@ -11,5 +11,8 @@ export async function getPlanetBySlug(slug: string) {
     where: {
       slug,
     },
+    include: {
+      type: true,
+    },
   });
 }
