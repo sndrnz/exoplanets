@@ -27,7 +27,6 @@ export default function PlanetCard({ planet }: Props) {
               sizes="(max-width: 768px) 640px, (max-width: 1024px) 400px, 320px"
               src={`/images/planets/${planet.image}`}
             />
-            <div className="absolute bottom-4 left-1/2 h-2 w-36 -translate-x-1/2 rounded-full bg-white/80 blur-xl"></div>
           </div>
           <CardFooter className="block space-y-2 pb-8">
             <h2 className="text-center text-4xl font-bold">{planet.name}</h2>

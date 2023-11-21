@@ -1,7 +1,8 @@
 "use client";
 
 import navigationItems from "@/lib/data/navigation";
-import { Link, Navbar, NavbarContent, NavbarItem, cn } from "@nextui-org/react";
+import { cn } from "@nextui-org/react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -25,29 +26,53 @@ export default function Header() {
   }, []);
 
   return (
-    <Navbar
-      classNames={{
-        wrapper: "max-w-7xl",
-        content: "flex gap-8",
-      }}
-      isBlurred={false}
+    // <Navbar
+    //   classNames={{
+    //     wrapper: "max-w-7xl",
+    //     content: "flex gap-8 justify-center bg-blue-500",
+    //   }}
+    //   isBlurred={false}
+    //   className={cn(
+    //     "transition-all duration-700",
+    //     isOnTop ? "bg-transparent" : "bg-black/50 backdrop-blur-md",
+    //   )}
+    // >
+    //   <NavbarContent>
+    //     {navigationItems.map((item) => (
+    //       <NavbarItem key={item.path}>
+    //         <Link
+    //           href={item.path}
+    //           color={pathname === item.path ? "primary" : "foreground"}
+    //         >
+    //           {item.name}
+    //         </Link>
+    //       </NavbarItem>
+    //     ))}
+    //   </NavbarContent>
+    // </Navbar>
+    <nav
       className={cn(
-        "transition-all duration-700",
-        isOnTop ? "bg-transparent" : "bg-black",
+        "fixed left-0 right-0 top-0 z-50 h-20 shadow-white/20",
+        isOnTop
+          ? "bg-transparent shadow-none"
+          : "bg-black/50 shadow-sm backdrop-blur-md",
       )}
     >
-      <NavbarContent>
+      <ul className="flex h-full items-center justify-center gap-8">
         {navigationItems.map((item) => (
-          <NavbarItem key={item.path}>
+          <li key={item.path}>
             <Link
               href={item.path}
-              color={pathname === item.path ? "primary" : "foreground"}
+              className={cn(
+                "text-lg",
+                pathname === item.path ? "text-primary" : "text-foreground",
+              )}
             >
               {item.name}
             </Link>
-          </NavbarItem>
+          </li>
         ))}
-      </NavbarContent>
-    </Navbar>
+      </ul>
+    </nav>
   );
 }

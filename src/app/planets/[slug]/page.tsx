@@ -1,7 +1,7 @@
+import { InfoTable, InfoTableRow } from "@/components/InfoTable";
 import Wrapper from "@/components/Wrapper";
 import { getPlanetBySlug, getPlanets } from "@/lib/data/planets";
 import Image from "next/image";
-import { PropsWithChildren } from "react";
 
 type Props = {
   params: {
@@ -15,23 +15,6 @@ export async function generateStaticParams() {
   return planets.map((planet) => ({
     slug: planet.slug,
   }));
-}
-
-function InfoTable({ children }: PropsWithChildren) {
-  return (
-    <table className="w-full">
-      <tbody className="divide-y divide-white/20">{children}</tbody>
-    </table>
-  );
-}
-
-function InfoTableRow({ label, value }: { label: string; value: string }) {
-  return (
-    <tr className="flex w-full p-4 text-xl sm:text-2xl">
-      <th className="flex-1 text-left">{label}</th>
-      <td className="flex-1">{value}</td>
-    </tr>
-  );
 }
 
 export default async function Page({ params }: Props) {
