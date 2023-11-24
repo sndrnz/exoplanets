@@ -14,8 +14,7 @@ export default function PlanetCard({ planet }: Props) {
       <Link href={`/planets/${planet.slug}`}>
         <Card
           radius="lg"
-          className="group border-2 border-white/20 bg-transparent bg-gradient-to-b from-white/5 to-black backdrop-blur-sm transition-background hover:border-primary hover:from-primary/20"
-          isPressable
+          className="group cursor-pointer border-2 border-white/20 bg-transparent bg-gradient-to-b from-white/5 to-black backdrop-blur-sm transition-background hover:border-primary hover:from-primary/20"
           disableRipple
         >
           <div className="relative mb-2 p-8">
