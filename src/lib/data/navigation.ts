@@ -3,7 +3,7 @@ export type NavigationItem = {
   path: string;
 };
 
-const navigationItems: NavigationItem[] = [
+export const headerItems: NavigationItem[] = [
   // {
   //   name: "Home",
   //   path: "/",
@@ -18,4 +18,17 @@ const navigationItems: NavigationItem[] = [
   },
 ];
 
-export default navigationItems;
+export const footerItems: NavigationItem[] = [
+  {
+    name: "Home",
+    path: "/",
+  },
+  {
+    name: "Planets",
+    path: "/planets",
+  },
+  {
+    name: "About",
+    path: "/about",
+  },
+];

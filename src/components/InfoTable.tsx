@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, ReactNode } from "react";
 
 export function InfoTable({ children }: PropsWithChildren) {
   return (
@@ -11,14 +11,16 @@ export function InfoTable({ children }: PropsWithChildren) {
 export function InfoTableRow({
   label,
   value,
+  children,
 }: {
   label: string;
-  value: string;
+  value?: string;
+  children?: ReactNode;
 }) {
   return (
     <tr className="flex w-full p-4 text-xl sm:text-2xl">
       <th className="flex-1 text-left">{label}</th>
-      <td className="flex-1">{value}</td>
+      <td className="flex-1">{value ? value : children ? children : null}</td>
     </tr>
   );
 }

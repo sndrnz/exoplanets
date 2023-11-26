@@ -23,8 +23,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en" className="bg-black dark">
       <body className={cn(font.className, "")}>
         <Providers>
-          <div className="flex min-h-screen flex-col">
-            <div className="fixed inset-0 -z-10">
+          <div className="flex min-h-[100svh] flex-col">
+            <div className="fixed inset-0 -z-10 h-screen">
               <Image
                 src={stars}
                 fill

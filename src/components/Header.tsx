@@ -1,6 +1,6 @@
 "use client";
 
-import navigationItems from "@/lib/data/navigation";
+import { headerItems } from "@/lib/data/navigation";
 import { cn } from "@nextui-org/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -59,7 +59,7 @@ export default function Header() {
       )}
     >
       <ul className="flex h-full items-center justify-center gap-8">
-        {navigationItems.map((item) => (
+        {headerItems.map((item) => (
           <li key={item.path}>
             <Link
               href={item.path}

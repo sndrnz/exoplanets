@@ -1,4 +1,5 @@
 import { InfoTable, InfoTableRow } from "@/components/InfoTable";
+import Link from "@/components/Link";
 import Wrapper from "@/components/Wrapper";
 import { getPlanetBySlug, getPlanets } from "@/lib/data/planets";
 import Image from "next/image";
@@ -50,7 +51,20 @@ export default async function Page({ params }: Props) {
                   value={`${planet.distance} light years`}
                 />
                 <InfoTableRow label="Type" value={planet.type.name} />
-                {/* <InfoTableRow label="Source" value={planet.source} /> */}
+                <InfoTableRow label="Source">
+                  <Link
+                    className="text-gray-400"
+                    target="_blank"
+                    href={planet.source}
+                  >
+                    <span
+                      title={planet.source}
+                      className="block w-48 truncate sm:w-56"
+                    >
+                      {planet.source}
+                    </span>
+                  </Link>
+                </InfoTableRow>
               </InfoTable>
             </div>
           </div>
