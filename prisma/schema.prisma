@@ -21,14 +21,15 @@ model PlanetType {
 }
 
 model Planet {
-  id         Int    @id @default(autoincrement())
-  name       String
-  image      String
-  discovered Int
-  distance   Float
-  source     String
-  slug       String @unique
-  typeId     Int
+  id               Int     @id @default(autoincrement())
+  name             String
+  image            String
+  imagePlaceholder String?
+  discovered       Int
+  distance         Float
+  source           String
+  slug             String  @unique
+  typeId           Int
 
   type PlanetType @relation(fields: [typeId], references: [id])
 }

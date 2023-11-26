@@ -1,10 +1,13 @@
 import { Planet } from "@prisma/client";
+import { getPlaceholderForImage } from "./placeholders";
 import { getPlanetTypeId } from "./planetTypes";
+
 const planets: Planet[] = [
   {
     id: 1,
     name: "55 Cancri b",
     image: "55_Cancri_b.webp",
+    imagePlaceholder: getPlaceholderForImage("55_Cancri_b.webp"),
     discovered: 1996,
     distance: 41,
     source:
@@ -16,6 +19,7 @@ const planets: Planet[] = [
     id: 2,
     name: "55 Cancri c",
     image: "55_Cancri_c.webp",
+    imagePlaceholder: getPlaceholderForImage("55_Cancri_c.webp"),
     discovered: 2004,
     distance: 41,
     source:
@@ -27,6 +31,7 @@ const planets: Planet[] = [
     id: 3,
     name: "55 Cancri d",
     image: "55_Cancri_d.webp",
+    imagePlaceholder: getPlaceholderForImage("55_Cancri_d.webp"),
     discovered: 2002,
     distance: 459,
     source:
@@ -38,6 +43,7 @@ const planets: Planet[] = [
     id: 4,
     name: "55 Cancri e",
     image: "55_Cancri_e.webp",
+    imagePlaceholder: getPlaceholderForImage("55_Cancri_e.webp"),
     discovered: 2004,
     distance: 41,
     source:
@@ -49,6 +55,7 @@ const planets: Planet[] = [
     id: 5,
     name: "55 Cancri f",
     image: "55_Cancri_f.webp",
+    imagePlaceholder: getPlaceholderForImage("55_Cancri_f.webp"),
     discovered: 2007,
     distance: 41,
     source:
@@ -60,6 +67,7 @@ const planets: Planet[] = [
     id: 6,
     name: "AU Microscopii b",
     image: "AU_Microscopii_b.webp",
+    imagePlaceholder: getPlaceholderForImage("AU_Microscopii_b.webp"),
     discovered: 2020,
     distance: 32,
     source:
@@ -71,6 +79,7 @@ const planets: Planet[] = [
     id: 7,
     name: "AU Microscopii c",
     image: "AU_Microscopii_c.webp",
+    imagePlaceholder: getPlaceholderForImage("AU_Microscopii_c.webp"),
     discovered: 2021,
     distance: 32,
     source:
@@ -82,6 +91,7 @@ const planets: Planet[] = [
     id: 8,
     name: "GJ 15 A b",
     image: "GJ_15_A_b.webp",
+    imagePlaceholder: getPlaceholderForImage("GJ_15_A_b.webp"),
     discovered: 2014,
     distance: 12,
     source:
@@ -93,6 +103,7 @@ const planets: Planet[] = [
     id: 9,
     name: "GJ 15 A c",
     image: "GJ_15_A_c.webp",
+    imagePlaceholder: getPlaceholderForImage("GJ_15_A_c.webp"),
     discovered: 2018,
     distance: 12,
     source:
@@ -104,6 +115,7 @@ const planets: Planet[] = [
     id: 10,
     name: "GJ 436 b",
     image: "GJ_436_b.webp",
+    imagePlaceholder: getPlaceholderForImage("GJ_436_b.webp"),
     discovered: 2004,
     distance: 32,
     source:
@@ -115,6 +127,7 @@ const planets: Planet[] = [
     id: 11,
     name: "GJ 504 b",
     image: "GJ_504_b.webp",
+    imagePlaceholder: getPlaceholderForImage("GJ_504_b.webp"),
     discovered: 2013,
     distance: 57,
     source:
@@ -126,6 +139,7 @@ const planets: Planet[] = [
     id: 12,
     name: "GJ 1132 b",
     image: "GJ_1132_b.webp",
+    imagePlaceholder: getPlaceholderForImage("GJ_1132_b.webp"),
     discovered: 2015,
     distance: 41,
     source:
@@ -137,6 +151,7 @@ const planets: Planet[] = [
     id: 13,
     name: "GJ 1132 c",
     image: "GJ_1132_c.webp",
+    imagePlaceholder: getPlaceholderForImage("GJ_1132_c.webp"),
     discovered: 2018,
     distance: 41,
     source:
@@ -148,6 +163,7 @@ const planets: Planet[] = [
     id: 14,
     name: "HD 17156 b",
     image: "HD_17156_b.webp",
+    imagePlaceholder: getPlaceholderForImage("HD_17156_b.webp"),
     discovered: 2007,
     distance: 255,
     source:
@@ -159,6 +175,7 @@ const planets: Planet[] = [
     id: 15,
     name: "HD 189733 b",
     image: "HD_189733_b.webp",
+    imagePlaceholder: getPlaceholderForImage("HD_189733_b.webp"),
     discovered: 2005,
     distance: 65,
     source:
@@ -170,6 +187,7 @@ const planets: Planet[] = [
     id: 16,
     name: "KELT-9 b",
     image: "KELT-9_b.webp",
+    imagePlaceholder: getPlaceholderForImage("KELT-9_b.webp"),
     discovered: 2017,
     distance: 667,
     source:
@@ -181,6 +199,7 @@ const planets: Planet[] = [
     id: 17,
     name: "Kepler-7 b",
     image: "Kepler-7_b.webp",
+    imagePlaceholder: getPlaceholderForImage("Kepler-7_b.webp"),
     discovered: 2009,
     distance: 3000,
     source:
@@ -192,6 +211,7 @@ const planets: Planet[] = [
     id: 18,
     name: "Kepler-16 b",
     image: "Kepler-16_b.webp",
+    imagePlaceholder: getPlaceholderForImage("Kepler-16_b.webp"),
     discovered: 2011,
     distance: 245,
     source:
@@ -203,6 +223,7 @@ const planets: Planet[] = [
     id: 19,
     name: "Kepler-22 b",
     image: "Kepler-22_b.webp",
+    imagePlaceholder: getPlaceholderForImage("Kepler-22_b.webp"),
     discovered: 2011,
     distance: 635,
     source:
@@ -214,6 +235,7 @@ const planets: Planet[] = [
     id: 20,
     name: "Kepler-36 b",
     image: "Kepler-36_b.webp",
+    imagePlaceholder: getPlaceholderForImage("Kepler-36_b.webp"),
     discovered: 2012,
     distance: 2000,
     source:
@@ -225,6 +247,7 @@ const planets: Planet[] = [
     id: 21,
     name: "Kepler-36 c",
     image: "Kepler-36_c.webp",
+    imagePlaceholder: getPlaceholderForImage("Kepler-36_c.webp"),
     discovered: 2012,
     distance: 2000,
     source:
@@ -236,6 +259,7 @@ const planets: Planet[] = [
     id: 22,
     name: "Kepler-452 b",
     image: "Kepler-452_b.webp",
+    imagePlaceholder: getPlaceholderForImage("Kepler-452_b.webp"),
     discovered: 2015,
     distance: 2000,
     source:
@@ -247,6 +271,7 @@ const planets: Planet[] = [
     id: 23,
     name: "KOI-55 b",
     image: "KOI-55_b.webp",
+    imagePlaceholder: getPlaceholderForImage("KOI-55_b.webp"),
     discovered: 2011,
     distance: 4000,
     source:
@@ -258,6 +283,7 @@ const planets: Planet[] = [
     id: 24,
     name: "KOI-55 c",
     image: "KOI-55_c.webp",
+    imagePlaceholder: getPlaceholderForImage("KOI-55_c.webp"),
     discovered: 2011,
     distance: 4000,
     source:
@@ -269,6 +295,7 @@ const planets: Planet[] = [
     id: 25,
     name: "PSR B1257+12 b",
     image: "PSR_B1257+12_b.webp",
+    imagePlaceholder: getPlaceholderForImage("PSR_B1257+12_b.webp"),
     discovered: 1994,
     distance: 2000,
     source:
@@ -280,6 +307,7 @@ const planets: Planet[] = [
     id: 26,
     name: "PSR B1257+12 c",
     image: "PSR_B1257+12_c.webp",
+    imagePlaceholder: getPlaceholderForImage("PSR_B1257+12_c.webp"),
     discovered: 1992,
     distance: 2000,
     source:
@@ -291,6 +319,7 @@ const planets: Planet[] = [
     id: 27,
     name: "PSR B1257+12 d",
     image: "PSR_B1257+12_d.webp",
+    imagePlaceholder: getPlaceholderForImage("PSR_B1257+12_d.webp"),
     discovered: 1992,
     distance: 2000,
     source:
@@ -302,6 +331,7 @@ const planets: Planet[] = [
     id: 28,
     name: "TIC 172900988 b",
     image: "TIC_172900988_b.webp",
+    imagePlaceholder: getPlaceholderForImage("TIC_172900988_b.webp"),
     discovered: 2021,
     distance: 819,
     source:
@@ -314,6 +344,7 @@ const planets: Planet[] = [
     id: 29,
     name: "TOI-849 b",
     image: "TOI-849_b.webp",
+    imagePlaceholder: getPlaceholderForImage("TOI-849_b.webp"),
     discovered: 2020,
     distance: 737,
     source:
@@ -325,6 +356,7 @@ const planets: Planet[] = [
     id: 30,
     name: "TOI-3757 b",
     image: "TOI-3757_b.webp",
+    imagePlaceholder: getPlaceholderForImage("TOI-3757_b.webp"),
     discovered: 2022,
     distance: 591,
     source:
@@ -336,6 +368,7 @@ const planets: Planet[] = [
     id: 31,
     name: "TrES-2 b",
     image: "TrES-2_b.webp",
+    imagePlaceholder: getPlaceholderForImage("TrES-2_b.webp"),
     discovered: 2006,
     distance: 703,
     source:
@@ -347,6 +380,7 @@ const planets: Planet[] = [
     id: 32,
     name: "TYC 8998-760-1 b",
     image: "TYC_8998-760-1_b.webp",
+    imagePlaceholder: getPlaceholderForImage("TYC_8998-760-1_b.webp"),
     discovered: 2020,
     distance: 309,
     source:
@@ -358,6 +392,7 @@ const planets: Planet[] = [
     id: 33,
     name: "TYC 8998-760-1 c",
     image: "TYC_8998-760-1_c.webp",
+    imagePlaceholder: getPlaceholderForImage("TYC_8998-760-1_c.webp"),
     discovered: 2020,
     distance: 309,
     source:
@@ -369,6 +404,7 @@ const planets: Planet[] = [
     id: 34,
     name: "WASP-12 b",
     image: "WASP-12_b.webp",
+    imagePlaceholder: getPlaceholderForImage("WASP-12_b.webp"),
     discovered: 2008,
     distance: 1000,
     source:
@@ -380,6 +416,7 @@ const planets: Planet[] = [
     id: 35,
     name: "WASP-96 b",
     image: "WASP-96_b.webp",
+    imagePlaceholder: getPlaceholderForImage("WASP-96_b.webp"),
     discovered: 2014,
     distance: 1000,
     source:

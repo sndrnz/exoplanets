@@ -19,7 +19,10 @@ export default function PlanetCard({ planet }: Props) {
         >
           <div className="relative mb-2 p-8">
             <Image
+              className="rounded-full"
               loading="lazy"
+              placeholder="blur"
+              blurDataURL={planet.imagePlaceholder ?? undefined}
               width={640}
               height={640}
               alt={planet.name}

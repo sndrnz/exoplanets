@@ -30,7 +30,10 @@ export default async function Page({ params }: Props) {
           <div className="mx-auto flex max-w-2xl flex-col items-center">
             <div className="max-w-xl">
               <Image
+                className="rounded-full"
                 loading="lazy"
+                placeholder="blur"
+                blurDataURL={planet.imagePlaceholder ?? undefined}
                 width={680}
                 height={680}
                 alt={planet.name}
