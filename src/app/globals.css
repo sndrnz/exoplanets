@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.glare-wrapper {
+  border-radius: 14px !important;
+}

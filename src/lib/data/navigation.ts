@@ -13,6 +13,10 @@ export const headerItems: NavigationItem[] = [
     path: "/planets",
   },
   {
+    name: "Types",
+    path: "/types",
+  },
+  {
     name: "About",
     path: "/about",
   },
@@ -26,6 +30,10 @@ export const footerItems: NavigationItem[] = [
   {
     name: "Planets",
     path: "/planets",
+  },
+  {
+    name: "Types",
+    path: "/types",
   },
   {
     name: "About",

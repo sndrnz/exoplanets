@@ -14,7 +14,7 @@ export default function Link({ children, target, className, ...props }: Props) {
   return (
     <NextLink
       className={cn(
-        "flex items-center gap-x-1 text-white hover:underline hover:opacity-80",
+        "flex items-center gap-x-1 hover:underline hover:underline-offset-4 hover:opacity-90",
         className,
       )}
       target={target}
