@@ -1,16 +1,19 @@
 import { cn } from "@nextui-org/react";
 import { ExternalLinkIcon } from "lucide-react";
-import NextLink, { LinkProps } from "next/link";
+import NextLink, { LinkProps as NextLinkProps } from "next/link";
 import { HTMLAttributeAnchorTarget, PropsWithChildren } from "react";
 
-type Props = PropsWithChildren<
-  LinkProps & {
-    className?: string;
-    target?: HTMLAttributeAnchorTarget;
-  }
->;
+interface LinkProps extends NextLinkProps {
+  className?: string;
+  target?: HTMLAttributeAnchorTarget;
+}
 
-export default function Link({ children, target, className, ...props }: Props) {
+export default function Link({
+  children,
+  target,
+  className,
+  ...props
+}: PropsWithChildren<LinkProps>) {
   return (
     <NextLink
       className={cn(

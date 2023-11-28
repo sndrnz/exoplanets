@@ -4,11 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import TiltEffect from "./TiltEffect";
 
-type Props = {
+interface PlanetCardProps {
   planet: Planet;
-};
+}
 
-export default function PlanetCard({ planet }: Props) {
+export default function PlanetCard({ planet }: PlanetCardProps) {
   return (
     <TiltEffect>
       <Link href={`/planets/${planet.slug}`}>

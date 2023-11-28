@@ -1,8 +1,8 @@
-type Props = {
+interface NotFoundProps {
   resource?: string;
-};
+}
 
-export default function NotFound({ resource }: Props) {
+export default function NotFound({ resource }: NotFoundProps) {
   return (
     <div className="absolute inset-0 flex items-center justify-center">
       <h1 className="flex divide-x-large divide-white text-4xl">

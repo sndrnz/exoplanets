@@ -3,12 +3,15 @@
 import useScroll from "@/lib/hooks/useScroll";
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
 
-type Props = {
+interface WrapperProps {
   title: string;
-};
+}
 
-export default function Wrapper({ title, children }: PropsWithChildren<Props>) {
-  const { isOnTop, distance } = useScroll();
+export default function Wrapper({
+  title,
+  children,
+}: PropsWithChildren<WrapperProps>) {
+  const { distance } = useScroll();
 
   const titleRef = useRef<HTMLHeadingElement>(null);
 

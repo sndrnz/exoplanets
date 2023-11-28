@@ -2,11 +2,11 @@ import Wrapper from "@/components/Wrapper";
 import { getPlanetTypeBySlug, getPlanetTypes } from "@/lib/data/planetTypes";
 import { notFound } from "next/navigation";
 
-type Props = {
+interface PageProps {
   params: {
     slug: string;
   };
-};
+}
 
 export async function generateStaticParams() {
   const planetTypes = await getPlanetTypes();
@@ -16,7 +16,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Page({ params: { slug } }: Props) {
+export default async function Page({ params: { slug } }: PageProps) {
   const planetType = await getPlanetTypeBySlug(slug);
 
   if (!planetType) {

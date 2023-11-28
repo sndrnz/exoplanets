@@ -14,7 +14,9 @@ export default async function Page() {
             className="w-full py-14 text-center first:pt-0 last:pb-0"
           >
             <Link href={`/types/${planetType.slug}`}>
-              <h2 className="text-5xl hover:opacity-80">{planetType.name}</h2>
+              <h2 className="text-3xl hover:opacity-80 sm:text-4xl">
+                {planetType.name}
+              </h2>
             </Link>
           </li>
         ))}

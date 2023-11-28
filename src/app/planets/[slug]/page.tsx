@@ -6,11 +6,11 @@ import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-type Props = {
+interface PageProps {
   params: {
     slug: string;
   };
-};
+}
 
 export async function generateStaticParams() {
   const planets = await getPlanets();
@@ -20,7 +20,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page({ params }: PageProps) {
   const { slug } = params;
 
   const planet = await getPlanetBySlug(slug);

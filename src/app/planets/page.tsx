@@ -1,17 +1,15 @@
-import PlanetCard from "@/components/PlanetCard";
+import PlanetList from "@/components/PlanetList";
 import Wrapper from "@/components/Wrapper";
+import { getPlanetTypes } from "@/lib/data/planetTypes";
 import { getPlanets } from "@/lib/data/planets";
 
 export default async function Home() {
   const planets = await getPlanets();
+  const planetTypes = await getPlanetTypes();
 
   return (
     <Wrapper title="Planets">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {planets.map((planet) => (
-          <PlanetCard key={planet.name} planet={planet} />
-        ))}
-      </div>
+      <PlanetList planets={planets} planetTypes={planetTypes} />
     </Wrapper>
   );
 }
