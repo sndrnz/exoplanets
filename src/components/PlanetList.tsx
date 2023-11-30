@@ -2,8 +2,9 @@
 
 import { PlanetType } from "@/lib/data/planetTypes";
 import { Planet } from "@/lib/data/planets";
-import { Input, Select, SelectItem, Selection } from "@nextui-org/react";
+import { Input, Select, SelectItem } from "@nextui-org/react";
 import { XIcon } from "lucide-react";
+import { useQueryState } from "next-usequerystate";
 import { useEffect, useState } from "react";
 import PlanetCard from "./PlanetCard";
 
@@ -17,40 +18,42 @@ export default function PlanetList({ planets, planetTypes }: PlanetListProps) {
 
   const [filteredPlanets, setFilteredPlanets] = useState<Planet[]>(allPlanets);
 
-  const [nameInput, setNameInput] = useState("");
-  const [typeSelection, setTypeSelection] = useState<Selection>(new Set([]));
+  // const [nameInput, setNameInput] = useState("");
+  // const [typeSelection, setTypeSelection] = useState<Selection>(new Set([]));
+
+  const [nameQuery, setNameQuery] = useQueryState("name");
+  const [typeQuery, setTypeQuery] = useQueryState("type");
 
   function clearFilters() {
-    setNameInput("");
-    setTypeSelection(new Set([]));
+    setNameQuery(null);
+    setTypeQuery(null);
   }
 
   useEffect(() => {
-    const name = nameInput.toLowerCase();
-    const type = Array.from(typeSelection)[0] ?? "";
+    const name = nameQuery?.toLowerCase() ?? "";
+    const type = typeQuery ?? "";
 
     const filteredPlanets = allPlanets.filter((planet) => {
       const nameMatches =
         name === "" || planet.name.toLowerCase().includes(name);
       const typeMatches = type === "" || planet.type.slug === type;
-
       return nameMatches && typeMatches;
     });
 
     setFilteredPlanets(filteredPlanets);
-  }, [nameInput, typeSelection, allPlanets]);
+  }, [nameQuery, typeQuery, allPlanets]);
 
   return (
     <div className="flex flex-col gap-y-8">
-      <div className="relative z-50 mx-auto flex h-full w-full max-w-xl items-center gap-x-4">
+      <div className="relative z-40 mx-auto flex h-full w-full max-w-xl items-center gap-x-4">
         <Input
           aria-label="Name"
           placeholder="Name"
           name="name"
           variant="bordered"
           color="primary"
-          value={nameInput}
-          onValueChange={setNameInput}
+          value={nameQuery ?? ""}
+          onValueChange={setNameQuery}
         />
         <Select
           aria-label="Type"
@@ -58,8 +61,14 @@ export default function PlanetList({ planets, planetTypes }: PlanetListProps) {
           name="type"
           variant="bordered"
           color="primary"
-          selectedKeys={typeSelection}
-          onSelectionChange={setTypeSelection}
+          classNames={{
+            base: "bg-transparent backdrop-blur-sm rounded-xl",
+            popoverContent: "bg-black/50 backdrop-blur-md",
+          }}
+          selectedKeys={typeQuery ? [typeQuery] : []}
+          onSelectionChange={(value) =>
+            setTypeQuery((Array.from(value)[0] ?? "").toString())
+          }
         >
           {planetTypes.map((planetType) => (
             <SelectItem key={planetType.slug} value={planetType.slug}>
