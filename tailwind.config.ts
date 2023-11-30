@@ -10,6 +10,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backdropBlur: {
+        xs: "2px",
+      },
       colors: {
         primary: {
           DEFAULT: "#309f92",

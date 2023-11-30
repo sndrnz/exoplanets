@@ -25,7 +25,7 @@ const planetTypes: PlanetType[] = [
     id: 3,
     name: "Super Earth",
     description:
-      "Super-Earths are typically Earth-like planets that may or may not have an atmosphere. They have a greater mass than Earth, but are lighter than Neptune and fall in an intermediate region",
+      "Super-Earths are typically Earth-like planets that may or may not have an atmosphere. They have a greater mass than Earth, but are lighter than Neptune and fall in an intermediate region.",
     slug: "super-earth",
   },
   {

@@ -17,7 +17,7 @@ model PlanetType {
   description String
   slug        String @unique
 
-  Planet Planet[]
+  planets Planet[]
 }
 
 model Planet {

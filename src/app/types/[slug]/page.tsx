@@ -1,3 +1,4 @@
+import PlanetList from "@/components/PlanetList";
 import Wrapper from "@/components/Wrapper";
 import { getPlanetTypeBySlug, getPlanetTypes } from "@/lib/data/planetTypes";
 import { notFound } from "next/navigation";
@@ -25,10 +26,14 @@ export default async function Page({ params: { slug } }: PageProps) {
 
   return (
     <Wrapper title={planetType.name}>
-      <div className="mx-auto mt-16 w-full max-w-xl">
-        <p className="text-justify text-xl sm:text-2xl">
-          {planetType.description}
-        </p>
+      <div className="flex flex-col gap-y-16">
+        <div className="mx-auto w-full max-w-4xl">
+          <p className="text-center text-xl !leading-loose sm:text-2xl">
+            {planetType.description}
+          </p>
+        </div>
+
+        <PlanetList planets={planetType.planets} />
       </div>
     </Wrapper>
   );

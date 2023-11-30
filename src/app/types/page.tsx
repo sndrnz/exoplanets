@@ -7,16 +7,14 @@ export default async function Page() {
 
   return (
     <Wrapper title="Planet Types">
-      <ul className="mx-auto flex max-w-xl flex-col items-center divide-y divide-white/50">
+      <ul className="mx-auto flex max-w-sm flex-col items-center divide-y divide-white/50">
         {planetTypes.map((planetType) => (
           <li
             key={planetType.id}
-            className="w-full py-14 text-center first:pt-0 last:pb-0"
+            className="w-full py-14 text-center text-white first:pt-0 last:pb-0"
           >
             <Link href={`/types/${planetType.slug}`}>
-              <h2 className="text-3xl hover:opacity-80 sm:text-4xl">
-                {planetType.name}
-              </h2>
+              <h2 className="text-3xl hover:opacity-80">{planetType.name}</h2>
             </Link>
           </li>
         ))}

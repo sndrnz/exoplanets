@@ -65,7 +65,9 @@ export default function Header() {
               href={item.path}
               className={cn(
                 "text-lg",
-                pathname === item.path ? "text-primary" : "text-foreground",
+                pathname.includes(item.path)
+                  ? "text-primary"
+                  : "text-foreground",
               )}
             >
               {item.name}

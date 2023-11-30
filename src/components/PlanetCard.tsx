@@ -15,7 +15,7 @@ export default function PlanetCard({ planet }: PlanetCardProps) {
         <Card
           radius="lg"
           // bg-transparent bg-gradient-to-b from-white/5 to-black backdrop-blur-sm transition-background
-          className="group cursor-pointer border-2 border-transparent bg-transparent  hover:border-primary hover:from-primary/20"
+          className="backdrop-blur-xs group cursor-pointer border-2 border-white/20 bg-transparent hover:border-primary hover:from-primary/20"
           disableRipple
         >
           <div className="relative mb-2 p-8">
