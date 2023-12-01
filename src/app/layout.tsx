@@ -35,7 +35,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
               <div className="absolute inset-0 z-20 bg-black/40" />
             </div>
             <Header />
-            <main className="container mx-auto mb-32 mt-16 max-w-7xl p-8 text-white">
+            <main className="container mx-auto mb-32 mt-16 max-w-screen-xl p-8 text-white">
               {children}
             </main>
             <Footer />

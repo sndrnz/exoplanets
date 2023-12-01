@@ -22,14 +22,14 @@ function Paragraph({ children }: PropsWithChildren) {
 
 function List({ children }: PropsWithChildren) {
   return (
-    <ul className="mb-4 flex flex-col items-center gap-y-3 px-4 py-2">
+    <ul className="mb-4 flex list-disc grid-cols-2 flex-col items-center gap-x-4 gap-y-3 px-8 py-4 sm:grid">
       {children}
     </ul>
   );
 }
 
 function ListItem({ children }: PropsWithChildren) {
-  return <li className="list-item">{children}</li>;
+  return <li className="list-item text-start">{children}</li>;
 }
 
 export default async function AboutPage() {
@@ -37,7 +37,7 @@ export default async function AboutPage() {
 
   return (
     <Wrapper title="About">
-      <div className="mx-auto flex flex-col items-center gap-y-12 text-center sm:gap-y-16">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-y-12 text-center sm:gap-y-16">
         <Section>
           <SectionHeader>Author</SectionHeader>
           <Paragraph>

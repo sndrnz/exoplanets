@@ -44,10 +44,11 @@ export default function Planets({ planets, planetTypes }: PlanetsProps) {
   }, [nameQuery, typeQuery, allPlanets]);
 
   return (
-    <div className="flex flex-col gap-y-16">
-      <div className="relative z-40 mx-auto flex h-full w-full max-w-4xl flex-col items-center gap-x-4 gap-y-4 sm:flex-row">
+    <div className="flex flex-col gap-y-8">
+      <div className="relative z-40 mx-auto flex h-full w-full flex-col items-center gap-x-4 gap-y-4 rounded-lg border-2 border-white/10 p-4 backdrop-blur-xs sm:flex-row">
         <h3 className="text-xl">Filter:</h3>
         <Input
+          radius="md"
           aria-label="Name"
           placeholder="Name"
           name="name"
@@ -55,19 +56,17 @@ export default function Planets({ planets, planetTypes }: PlanetsProps) {
           color="primary"
           value={nameQuery ?? ""}
           onValueChange={setNameQuery}
-          classNames={{
-            base: "bg-transparent backdrop-blur-xs rounded-xl",
-          }}
         />
         <Select
+          radius="md"
           aria-label="Type"
           placeholder="Type"
           name="type"
           variant="bordered"
           color="primary"
           classNames={{
-            base: "bg-transparent backdrop-blur-xs rounded-xl",
-            popoverContent: "bg-black/50 backdrop-blur-md",
+            popoverContent:
+              "bg-black/50 backdrop-blur-md border border-white/10",
           }}
           selectedKeys={typeQuery ? [typeQuery] : []}
           onSelectionChange={(value) =>
@@ -76,7 +75,7 @@ export default function Planets({ planets, planetTypes }: PlanetsProps) {
         >
           {planetTypes.map((planetType) => (
             <SelectItem key={planetType.slug} value={planetType.slug}>
-              {planetType.name}
+              {planetType.displayName}
             </SelectItem>
           ))}
         </Select>

@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .glare-wrapper {
-  border-radius: 14px !important;
+  border-radius: 12px !important;
 }

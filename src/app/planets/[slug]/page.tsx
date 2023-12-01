@@ -1,5 +1,5 @@
-import { InfoTable, InfoTableRow } from "@/components/InfoTable";
 import Link from "@/components/Link";
+import { AttributeRow, Table, TableRow } from "@/components/Table";
 import Wrapper from "@/components/Wrapper";
 import { getPlanetBySlug, getPlanets } from "@/lib/data/planets";
 import { ArrowUpRightIcon } from "lucide-react";
@@ -32,7 +32,7 @@ export default async function Page({ params }: PageProps) {
   return (
     <>
       <Wrapper title={planet.name}>
-        <div className="mx-auto flex max-w-2xl flex-col items-center">
+        <div className="mx-auto flex flex-col items-center">
           <div className="max-w-xl">
             <Image
               className="rounded-full"
@@ -47,41 +47,32 @@ export default async function Page({ params }: PageProps) {
             />
           </div>
 
-          <div className="mx-auto mt-16 w-full max-w-xl">
-            <InfoTable>
-              <InfoTableRow label="Name" value={planet.name} />
-              <InfoTableRow
-                label="Discovered"
-                value={planet.discovered.toString()}
-              />
-              <InfoTableRow
-                label="Distance to earth"
-                value={`${planet.distance} light years`}
-              />
-              <InfoTableRow label="Type">
+          <div className="mx-auto mt-16 w-full max-w-2xl">
+            <Table>
+              <TableRow label="Name" value={planet.name} />
+              <TableRow label="Type">
                 <Link
                   className="text-primary-400"
                   href={`/types/${planet.type.slug}`}
                 >
-                  {planet.type.name}
+                  {planet.type.displayName}
                   <ArrowUpRightIcon className="h-6 w-6" />
                 </Link>
-              </InfoTableRow>
-              <InfoTableRow label="Source">
+              </TableRow>
+              {planet.attributes.map((attribute) => (
+                <AttributeRow key={attribute.type.id} attribute={attribute} />
+              ))}
+
+              <TableRow label="Source">
                 <Link
                   className="text-blue-400"
                   target="_blank"
                   href={planet.source}
                 >
-                  <span
-                    title={planet.source}
-                    className="block w-48 truncate sm:w-56"
-                  >
-                    {planet.source}
-                  </span>
+                  <span className="block w-48 truncate sm:w-56">NASA</span>
                 </Link>
-              </InfoTableRow>
-            </InfoTable>
+              </TableRow>
+            </Table>
           </div>
         </div>
       </Wrapper>

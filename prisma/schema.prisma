@@ -11,25 +11,77 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
+enum PlanetTypeName {
+  GasGiant
+  Terrestrial
+  SuperEarth
+  Neptunian
+}
+
 model PlanetType {
-  id          Int    @id @default(autoincrement())
-  name        String
+  id          PlanetTypeName @id
+  displayName String
   description String
-  slug        String @unique
+  slug        String         @unique
 
   planets Planet[]
 }
 
 model Planet {
-  id               Int     @id @default(autoincrement())
+  id               Int            @id @default(autoincrement())
   name             String
   image            String
   imagePlaceholder String?
-  discovered       Int
-  distance         Float
   source           String
-  slug             String  @unique
-  typeId           Int
+  slug             String         @unique
+  typeId           PlanetTypeName
 
-  type PlanetType @relation(fields: [typeId], references: [id])
+  type       PlanetType  @relation(fields: [typeId], references: [id])
+  attributes Attribute[]
+}
+
+enum UnitName {
+  LightYears
+  EarthMasses
+  EarthRadii
+  JupiterMasses
+  JupiterRadii
+  Year
+}
+
+model Unit {
+  id          UnitName @id
+  displayName String
+  suffix      String?
+  explanation String?
+
+  attributes Attribute[]
+}
+
+enum AttributeName {
+  Discovery
+  Mass
+  Radius
+  Distance
+}
+
+model AttributeType {
+  id          AttributeName @id
+  displayName String
+  explanation String?
+
+  attributes Attribute[]
+}
+
+model Attribute {
+  value    String
+  typeId   AttributeName
+  unitId   UnitName
+  planetId Int
+
+  planet Planet        @relation(fields: [planetId], references: [id])
+  type   AttributeType @relation(fields: [typeId], references: [id])
+  unit   Unit          @relation(fields: [unitId], references: [id])
+
+  @@id([planetId, typeId, unitId])
 }

@@ -13,9 +13,9 @@ export default function PlanetCard({ planet }: PlanetCardProps) {
     <TiltEffect>
       <Link href={`/planets/${planet.slug}`}>
         <Card
-          radius="lg"
+          radius="md"
           // bg-transparent bg-gradient-to-b from-white/5 to-black backdrop-blur-sm transition-background
-          className="backdrop-blur-xs group cursor-pointer border-2 border-white/20 bg-transparent hover:border-primary hover:from-primary/20"
+          className="group cursor-pointer border-2 border-white/10 bg-transparent backdrop-blur-xs"
           disableRipple
         >
           <div className="relative mb-2 p-8">
@@ -31,13 +31,11 @@ export default function PlanetCard({ planet }: PlanetCardProps) {
               src={`/images/planets/${planet.image}`}
             />
           </div>
-          <CardFooter className="block space-y-2 pb-8">
-            <h2 className="text-center text-4xl font-bold">{planet.name}</h2>
-            {/* <p className="text-start opacity-50">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-            consequuntur amet vitae recusandae ratione officia sapiente deleniti
-            quas iste placeat.
-          </p> */}
+          <CardFooter className="block space-y-2 px-8 pb-8">
+            <h2 className="text-4xl font-bold">{planet.name}</h2>
+            <p className="text-white/50">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
           </CardFooter>
         </Card>
       </Link>

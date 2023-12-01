@@ -7,11 +7,18 @@ export type PlanetWithType = Awaited<
 >[number];
 
 export async function getPlanets() {
-  return await db.planet.findMany();
+  return await db.planet.findMany({
+    orderBy: {
+      id: "asc",
+    },
+  });
 }
 
 export async function getPlanetsWithType() {
   return await db.planet.findMany({
+    orderBy: {
+      id: "asc",
+    },
     include: {
       type: true,
     },
@@ -25,6 +32,12 @@ export async function getPlanetBySlug(slug: string) {
     },
     include: {
       type: true,
+      attributes: {
+        include: {
+          type: true,
+          unit: true,
+        },
+      },
     },
   });
 }

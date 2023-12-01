@@ -8,7 +8,7 @@ export default function TiltEffect({ children }: PropsWithChildren) {
       tiltMaxAngleX={5}
       tiltMaxAngleY={5}
       glareEnable={true}
-      glareMaxOpacity={0.3}
+      glareMaxOpacity={0.2}
       glarePosition="all"
       glareColor="#00E7CC"
       transitionSpeed={2000}

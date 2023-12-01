@@ -4,10 +4,10 @@ export type NavigationItem = {
 };
 
 export const headerItems: NavigationItem[] = [
-  // {
-  //   name: "Home",
-  //   path: "/",
-  // },
+  {
+    name: "Home",
+    path: "/",
+  },
   {
     name: "Planets",
     path: "/planets",
@@ -23,10 +23,10 @@ export const headerItems: NavigationItem[] = [
 ];
 
 export const footerItems: NavigationItem[] = [
-  // {
-  //   name: "Home",
-  //   path: "/",
-  // },
+  {
+    name: "Home",
+    path: "/",
+  },
   {
     name: "Planets",
     path: "/planets",
