@@ -1,4 +1,5 @@
-import List, { ListItem } from "@/components/List";
+import Card from "@/components/Card";
+import CardGrid from "@/components/CardGrid";
 import Wrapper from "@/components/Wrapper";
 import { getPlanetTypes } from "@/lib/data/planetTypes";
 
@@ -7,15 +8,16 @@ export default async function PlanetTypesPage() {
 
   return (
     <Wrapper title="Planet Types">
-      <List>
+      <CardGrid>
         {planetTypes.map((planetType) => (
-          <ListItem
+          <Card
             key={planetType.id}
-            value={planetType.displayName}
             href={`/types/${planetType.slug}`}
+            title={planetType.displayName}
+            description={planetType.description}
           />
         ))}
-      </List>
+      </CardGrid>
     </Wrapper>
   );
 }

@@ -1,4 +1,5 @@
-import List, { ListItem } from "@/components/List";
+import Card from "@/components/Card";
+import CardGrid from "@/components/CardGrid";
 import Wrapper from "@/components/Wrapper";
 import { getDetectionMethods } from "@/lib/data/detectionMethods";
 
@@ -7,15 +8,16 @@ export default async function Page() {
 
   return (
     <Wrapper title="Detection Methods">
-      <List>
+      <CardGrid>
         {detectionMethods.map((detectionMethod) => (
-          <ListItem
+          <Card
             key={detectionMethod.id}
-            value={detectionMethod.displayName}
             href={`/methods/${detectionMethod.slug}`}
+            title={detectionMethod.displayName}
+            description={detectionMethod.description}
           />
         ))}
-      </List>
+      </CardGrid>
     </Wrapper>
   );
 }

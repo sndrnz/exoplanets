@@ -1,6 +1,6 @@
-import TiltEffect from "@/components/TiltEffect";
+import Card from "@/components/Card";
+import CardGrid from "@/components/CardGrid";
 import Wrapper from "@/components/Wrapper";
-import Link from "next/link";
 
 const items = [
   {
@@ -25,26 +25,23 @@ const items = [
     title: "Dictionary",
     href: "/dictionary",
     description:
-      "Learn the meaning of the most important terms used in the study of exoplanets.",
+      "Get familiar with the terminology used on this site and in the field of exoplanets.",
   },
 ];
 
 export default function Home() {
   return (
     <Wrapper title="Explore">
-      <div className="mx-auto flex max-w-4xl grid-cols-2 flex-col gap-8 sm:grid">
-        {items.map((item, index) => (
-          <TiltEffect key={index}>
-            <Link
-              href={item.href}
-              className="flex w-full flex-col gap-y-4 rounded-xl border-2 border-white/10 p-8 backdrop-blur-xs"
-            >
-              <h2 className="text-3xl sm:text-4xl">{item.title}</h2>
-              <p className="text-white/50">{item.description}</p>
-            </Link>
-          </TiltEffect>
+      <CardGrid>
+        {items.map((item) => (
+          <Card
+            key={item.href}
+            title={item.title}
+            href={item.href}
+            description={item.description}
+          />
         ))}
-      </div>
+      </CardGrid>
     </Wrapper>
   );
 }

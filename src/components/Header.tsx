@@ -14,7 +14,7 @@ export default function Header() {
   const pathname = usePathname();
 
   const [isOnTop, setIsOnTop] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,52 +34,67 @@ export default function Header() {
     <header>
       <nav
         className={cn(
-          "fixed left-0 right-0 top-0 z-50 mx-auto h-20 max-w-screen-xl shadow-white/20",
+          "fixed left-0 right-0 top-0 z-50 h-20 shadow-white/20 transition-all",
           {
             "bg-transparent shadow-none": isOnTop,
-            "bg-black/50 backdrop-blur-md": !isOnTop,
-            "shadow-sm": !isOnTop && !isMenuOpen,
+            "bg-black/50 shadow-sm backdrop-blur-md": !isOnTop && !isMenuOpen,
+            "delay-200": isMenuOpen,
           },
         )}
       >
-        <div className="absolute bottom-0 top-0 z-50 flex items-center pl-12 ">
-          <Link className="flex items-center gap-x-2" href="/">
-            <Image
-              alt="Planet icon"
-              src={icon}
-              width={256}
-              height={256}
-              className="h-6 w-6 lg:h-8 lg:w-8"
-            />
-            <div className="text-xl lg:text-2xl">Exoplanets</div>
-          </Link>
-        </div>
-        <ul className="z-50 hidden h-full items-center justify-center gap-8 md:flex">
-          {navigationItems.map((item) => (
-            <li key={item.path}>
-              <Link
-                href={item.path}
+        <div className="mx-auto h-full max-w-screen-xl">
+          <div className="absolute bottom-0 top-0 z-50 flex items-center pl-8 ">
+            <Link
+              className="flex items-center gap-x-2"
+              href="/"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Image
+                alt="Planet icon"
+                src={icon}
+                width={256}
+                height={256}
+                className="h-7 w-7"
+              />
+              <div
                 className={cn(
-                  "text-lg",
-                  (
-                    item.path === "/"
-                      ? item.path === pathname
-                      : pathname.includes(item.path)
-                  )
+                  "text-2xl",
+                  pathname === "/"
                     ? "text-primary"
-                    : "text-foreground",
+                    : "text-foreground hover:opacity-80",
                 )}
               >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+                Exoplanets
+              </div>
+            </Link>
+          </div>
+          <ul className="z-50 hidden h-full items-center justify-center gap-8 md:flex">
+            {navigationItems.map((item) => (
+              <li key={item.path}>
+                <Link
+                  href={item.path}
+                  className={cn(
+                    "text-lg",
+                    (
+                      item.path === "/"
+                        ? item.path === pathname
+                        : pathname.includes(item.path)
+                    )
+                      ? "text-primary"
+                      : "text-foreground hover:opacity-80",
+                  )}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-        <div className="absolute bottom-0 right-0 top-0 z-50 flex items-center pr-12 md:hidden ">
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <MenuIcon className="h-8 w-8" />
-          </button>
+          <div className="absolute bottom-0 right-0 top-0 z-50 flex items-center pr-8 md:hidden ">
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <MenuIcon className="h-8 w-8" />
+            </button>
+          </div>
         </div>
       </nav>
       <AnimatePresence>
@@ -102,14 +117,14 @@ export default function Header() {
             layout
             className="fixed left-0 right-0 z-20 bg-black/50 shadow-sm shadow-white/20"
           >
-            <ul className="-mt-8 flex flex-col items-center gap-y-4 pb-8 pt-28">
+            <ul className="-mt-8 flex flex-col items-start gap-y-4 px-8 pb-8 pt-28">
               {navigationItems.map((item) => (
-                <li key={item.path}>
+                <li key={item.path} className="w-full">
                   <Link
                     href={item.path}
                     onClick={() => setIsMenuOpen(false)}
                     className={cn(
-                      "text-lg",
+                      "block w-full text-lg",
                       (
                         item.path === "/"
                           ? item.path === pathname
@@ -142,7 +157,8 @@ export default function Header() {
               ease: "easeInOut",
               duration: 0.5,
             }}
-            className="fixed inset-0 z-10 bg-black/20 backdrop-blur-md"
+            className="fixed inset-0 z-10 bg-black/50 backdrop-blur-md"
+            onClick={() => setIsMenuOpen(false)}
           />
         )}
       </AnimatePresence>

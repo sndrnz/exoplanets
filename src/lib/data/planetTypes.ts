@@ -3,7 +3,11 @@ import { db } from "../db";
 export type PlanetType = Awaited<ReturnType<typeof getPlanetTypes>>[number];
 
 export async function getPlanetTypes() {
-  return await db.planetType.findMany();
+  return await db.planetType.findMany({
+    orderBy: {
+      order: "asc",
+    },
+  });
 }
 
 export async function getPlanetTypeBySlug(slug: string) {

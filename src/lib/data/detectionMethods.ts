@@ -5,7 +5,11 @@ export type DetectionMethod = Awaited<
 >[number];
 
 export async function getDetectionMethods() {
-  return await db.detectionMethod.findMany();
+  return await db.detectionMethod.findMany({
+    orderBy: {
+      order: "asc",
+    },
+  });
 }
 
 export async function getDetectionMethodBySlug(slug: string) {

@@ -5,11 +5,11 @@ export type NavigationItem = {
 };
 
 const navigationItems: NavigationItem[] = [
-  {
-    name: "Home",
-    path: "/",
-    placement: "center",
-  },
+  // {
+  //   name: "Home",
+  //   path: "/",
+  //   placement: "center",
+  // },
   {
     name: "Planets",
     path: "/planets",
@@ -23,6 +23,11 @@ const navigationItems: NavigationItem[] = [
   {
     name: "Methods",
     path: "/methods",
+    placement: "center",
+  },
+  {
+    name: "Dictionary",
+    path: "/dictionary",
     placement: "center",
   },
   {
