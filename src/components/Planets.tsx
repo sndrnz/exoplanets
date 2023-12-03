@@ -45,7 +45,7 @@ export default function Planets({ planets, planetTypes }: PlanetsProps) {
 
   return (
     <div className="flex flex-col gap-y-8">
-      <div className="relative z-40 mx-auto flex h-full w-full flex-col items-center gap-x-4 gap-y-4 rounded-lg border-2 border-white/10 p-4 backdrop-blur-xs sm:flex-row">
+      <div className="relative z-20 mx-auto flex h-full w-full flex-col items-center gap-x-4 gap-y-4 rounded-lg border-2 border-white/10 p-4 backdrop-blur-xs sm:flex-row">
         <h3 className="text-xl">Filter:</h3>
         <Input
           radius="md"

@@ -31,7 +31,7 @@ export default function Wrapper({
     <div className="relative">
       <h1
         ref={titleRef}
-        className="sticky left-0 right-0 mb-16 bg-gradient-to-b from-primary to-primary/10 bg-clip-text text-center text-7xl font-bold !leading-tight text-transparent sm:text-8xl md:text-9xl"
+        className="sticky left-0 right-0 -z-10 mb-16 bg-gradient-to-b from-primary to-primary/10 bg-clip-text text-center text-7xl font-bold !leading-tight text-transparent sm:text-8xl md:text-9xl"
         style={{
           top: titleTop,
           opacity,

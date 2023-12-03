@@ -1,50 +1,35 @@
 export type NavigationItem = {
   name: string;
   path: string;
+  placement: "center" | "left" | "right";
 };
 
-export const headerItems: NavigationItem[] = [
+const navigationItems: NavigationItem[] = [
   {
     name: "Home",
     path: "/",
+    placement: "center",
   },
   {
     name: "Planets",
     path: "/planets",
+    placement: "center",
   },
   {
     name: "Types",
     path: "/types",
+    placement: "center",
   },
   {
     name: "Methods",
     path: "/methods",
+    placement: "center",
   },
   {
     name: "About",
     path: "/about",
+    placement: "right",
   },
 ];
 
-export const footerItems: NavigationItem[] = [
-  {
-    name: "Home",
-    path: "/",
-  },
-  {
-    name: "Planets",
-    path: "/planets",
-  },
-  {
-    name: "Types",
-    path: "/types",
-  },
-  {
-    name: "Methods",
-    path: "/methods",
-  },
-  {
-    name: "About",
-    path: "/about",
-  },
-];
+export default navigationItems;
