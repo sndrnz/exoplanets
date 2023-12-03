@@ -1,3 +1,4 @@
+import Paragraph from "@/components/Paragraph";
 import PlanetList from "@/components/PlanetList";
 import Wrapper from "@/components/Wrapper";
 import { getPlanetTypeBySlug, getPlanetTypes } from "@/lib/data/planetTypes";
@@ -27,11 +28,7 @@ export default async function Page({ params: { slug } }: PageProps) {
   return (
     <Wrapper title={planetType.displayName}>
       <div className="flex flex-col gap-y-16">
-        <div className="mx-auto w-full max-w-4xl">
-          <p className="text-center text-xl !leading-loose sm:text-2xl">
-            {planetType.description}
-          </p>
-        </div>
+        <Paragraph>{planetType.description}</Paragraph>
 
         <PlanetList planets={planetType.planets} />
       </div>

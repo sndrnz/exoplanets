@@ -32,6 +32,7 @@ export async function getPlanetBySlug(slug: string) {
     },
     include: {
       type: true,
+      method: true,
       attributes: {
         include: {
           type: true,

@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import attributeTypes from "./attributeTypes";
+import detectionMethods from "./detectionMethods";
 import planetTypes from "./planetTypes";
 import planets from "./planets";
 import units from "./units";
@@ -9,6 +10,10 @@ const prisma = new PrismaClient();
 async function main() {
   await prisma.planetType.createMany({
     data: planetTypes,
+  });
+
+  await prisma.detectionMethod.createMany({
+    data: detectionMethods,
   });
 
   await prisma.unit.createMany({

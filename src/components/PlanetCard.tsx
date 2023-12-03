@@ -14,7 +14,6 @@ export default function PlanetCard({ planet }: PlanetCardProps) {
       <Link href={`/planets/${planet.slug}`}>
         <Card
           radius="md"
-          // bg-transparent bg-gradient-to-b from-white/5 to-black backdrop-blur-sm transition-background
           className="group cursor-pointer border-2 border-white/10 bg-transparent backdrop-blur-xs"
           disableRipple
         >
@@ -33,8 +32,8 @@ export default function PlanetCard({ planet }: PlanetCardProps) {
           </div>
           <CardFooter className="block space-y-2 px-8 pb-8">
             <h2 className="text-4xl font-bold">{planet.name}</h2>
-            <p className="text-white/50">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <p className="line-clamp-2 min-h-[3em] text-base text-white/50">
+              {planet.description}
             </p>
           </CardFooter>
         </Card>

@@ -6,6 +6,7 @@ import { PropsWithChildren } from "react";
 const sources = [
   "https://exoplanets.nasa.gov/alien-worlds/strange-new-worlds/",
   "https://exoplanets.nasa.gov/what-is-an-exoplanet/planet-types/overview/",
+  "https://exoplanets.nasa.gov/alien-worlds/ways-to-find-a-planet/",
 ];
 
 function Section({ children }: PropsWithChildren) {

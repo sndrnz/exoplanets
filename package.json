@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "db:reset": "prisma migrate reset",
+    "db:reset:production": "dotenv -e .env.production prisma migrate reset --skip-generate"
   },
   "prisma": {
     "seed": "ts-node --transpile-only --compiler-options {\"module\":\"CommonJS\",\"moduleResolution\":\"node\"} prisma/seed/index.ts"
@@ -30,6 +32,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "dotenv-cli": "^7.3.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.1",
     "postcss": "^8",

@@ -1,26 +1,21 @@
+import List, { ListItem } from "@/components/List";
 import Wrapper from "@/components/Wrapper";
 import { getPlanetTypes } from "@/lib/data/planetTypes";
-import Link from "next/link";
 
-export default async function Page() {
+export default async function PlanetTypesPage() {
   const planetTypes = await getPlanetTypes();
 
   return (
     <Wrapper title="Planet Types">
-      <ul className="mx-auto flex max-w-sm flex-col items-center divide-y divide-white/50">
+      <List>
         {planetTypes.map((planetType) => (
-          <li
+          <ListItem
             key={planetType.id}
-            className="w-full py-14 text-center text-white first:pt-0 last:pb-0"
-          >
-            <Link href={`/types/${planetType.slug}`}>
-              <h2 className="text-3xl hover:opacity-80">
-                {planetType.displayName}
-              </h2>
-            </Link>
-          </li>
+            value={planetType.displayName}
+            href={`/types/${planetType.slug}`}
+          />
         ))}
-      </ul>
+      </List>
     </Wrapper>
   );
 }

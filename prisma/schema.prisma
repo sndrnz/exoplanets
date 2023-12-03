@@ -6,9 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 enum PlanetTypeName {
@@ -21,23 +21,29 @@ enum PlanetTypeName {
 model PlanetType {
   id          PlanetTypeName @id
   displayName String
-  description String
+  description String         @db.Text
   slug        String         @unique
 
   planets Planet[]
 }
 
 model Planet {
-  id               Int            @id @default(autoincrement())
+  id               Int                 @id @default(autoincrement())
   name             String
+  description      String
   image            String
-  imagePlaceholder String?
-  source           String
-  slug             String         @unique
+  imagePlaceholder String?             @db.VarChar(255)
+  source           String              @db.Text
+  slug             String              @unique
   typeId           PlanetTypeName
+  methodId         DetectionMethodName
 
-  type       PlanetType  @relation(fields: [typeId], references: [id])
+  type       PlanetType      @relation(fields: [typeId], references: [id])
   attributes Attribute[]
+  method     DetectionMethod @relation(fields: [methodId], references: [id])
+
+  @@index([typeId])
+  @@index([methodId])
 }
 
 enum UnitName {
@@ -53,7 +59,7 @@ model Unit {
   id          UnitName @id
   displayName String
   suffix      String?
-  explanation String?
+  explanation String?  @db.Text
 
   attributes Attribute[]
 }
@@ -68,7 +74,7 @@ enum AttributeName {
 model AttributeType {
   id          AttributeName @id
   displayName String
-  explanation String?
+  explanation String?       @db.Text
 
   attributes Attribute[]
 }
@@ -84,4 +90,24 @@ model Attribute {
   unit   Unit          @relation(fields: [unitId], references: [id])
 
   @@id([planetId, typeId, unitId])
+  @@index([planetId])
+  @@index([typeId])
+  @@index([unitId])
+}
+
+enum DetectionMethodName {
+  Transit
+  RadialVelocity
+  Imaging
+  OrbitalBrightnessModulation
+  PulsarTiming
+}
+
+model DetectionMethod {
+  id          DetectionMethodName @id
+  displayName String
+  description String              @db.Text
+  slug        String              @unique
+
+  planets Planet[]
 }
