@@ -10,6 +10,8 @@ interface PageProps {
   };
 }
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const planetTypes = await getPlanetTypes();
 
